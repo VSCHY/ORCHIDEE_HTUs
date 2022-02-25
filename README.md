@@ -71,3 +71,8 @@ If the user want to compare different simulations **over the same periods**, the
 - `stations`: The stations from which we want to extract the discharge must be indicated in the dictionary (key:id_station, value:name_station) in the 2_extraction.py file. 
 
 The data will be extracted in `Output/{name_output}_{idstation}.csv` folder, one csv file per station with the name of the simulation as head of the columns.
+
+## 3_stations_upstream_area.py
+This file shows how to:
+- extract the mask array of the upstream area of a station
+- extract the upstream area of a selection of stations and save it into a NetCDF file
