@@ -17,7 +17,6 @@ import matplotlib.pyplot as plt
 
 routing_file    = config.get("OverAll","routing_file",fallback=None)
 
-    
 # open routing
 rout = routing_upstream(routing_file)
 
@@ -25,20 +24,20 @@ rout = routing_upstream(routing_file)
 # here 627: Porto Murtinho
 mask = rout.mask(627)
 
-#
 # To plot the figure
 fig = plt.figure(figsize= (10,10))
 ax = plt.axes(projection=ccrs.PlateCarree())
 ax.add_feature(cartopy.feature.COASTLINE)
-ax.set_extent([minlon, maxlon, minlat, maxlat])
+ax.set_extent([-90,-30,-60,15])
 ax.contourf(rout.lon, rout.lat, mask)
 plt.imshow(mask)
 plt.show()
+plt.close()
     
 #
 # Test netcdf creation with a list of stations
 # Case 1: using list of stations id
-rout.netcdf_output("test1.nc", stations = [3667060,3299998,3265601], reference = 'station_number')
+rout.netcdf_output("test1.nc", stations = [3679999,3265601,3265300,3264500], reference = 'station_number')
 
 # Case 2: using list of index in the routing_file
 rout.netcdf_output("test2.nc", stations = [144,627,74], reference = 'file_index')

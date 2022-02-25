@@ -109,7 +109,7 @@ class GRDC:
         
         Dvar = {}
         Dvar["index"] = index_stations
-        for varn in ["number", "name", "river","WMOreg", "WMOsubreg","country","next","lon", "lat", "altitude"]:
+        for varn in ["number", "name", "river","WMOreg", "WMOsubreg","country","next","lon", "lat", "altitude", "area"]:
             if varn in ["name", "river","country"]:
                 Dvar[varn] = [get_str(self.nc.variables[varn][i,:]) for i in index_stations]
             else:

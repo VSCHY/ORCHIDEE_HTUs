@@ -153,10 +153,10 @@ class routing_upstream:
             lat[:] = self.lat[:]
             
             for i in stations:
-                mask = rout.mask(i)
+                mask = self.mask(i)
                 mask = ma.masked_where(mask == 0, mask)
                 
-                var = foo.createVariable(f"{self.ids[i]}", np.float32, ("lat", "lon"), zlib = True)
+                var = foo.createVariable(f"st{self.ids[i]}", np.float32, ("lat", "lon"), zlib = True)
                 var.setncattr("axis","YX")
                 var.setncattr("units","-")
                 var.setncattr("long_name",f"Upstream area of station {self.ids[i]}")
