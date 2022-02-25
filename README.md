@@ -1,6 +1,10 @@
 # ORCHIDEE_HTUs
 
-This tool allows to explore the hydrological station that are available in the simulation and permits the extraction of the discharge from the simulation and from the observations.
+<p align="center">
+<img src="https://images.unsplash.com/photo-1506355683710-bd071c0a5828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" width="60%"/>
+</p>
+
+This tool allows to explore the hydrological station that are available in the simulation and permits the extraction of the discharge from the simulation and from the observations in the ORCHIDEE's HTU system.
 
 # Discharge in the ORCHIDEE river routing scheme
 
@@ -67,3 +71,8 @@ If the user want to compare different simulations **over the same periods**, the
 - `stations`: The stations from which we want to extract the discharge must be indicated in the dictionary (key:id_station, value:name_station) in the 2_extraction.py file. 
 
 The data will be extracted in `Output/{name_output}_{idstation}.csv` folder, one csv file per station with the name of the simulation as head of the columns.
+
+## 3_stations_upstream_area.py
+This file shows how to:
+- extract the mask array of the upstream area of a station
+- extract the upstream area of a selection of stations and save it into a NetCDF file
