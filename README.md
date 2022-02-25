@@ -1,5 +1,7 @@
 # ORCHIDEE_HTUs
 
+![](https://images.unsplash.com/photo-1506355683710-bd071c0a5828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
+
 This tool allows to explore the hydrological station that are available in the simulation and permits the extraction of the discharge from the simulation and from the observations.
 
 # Discharge in the ORCHIDEE river routing scheme
