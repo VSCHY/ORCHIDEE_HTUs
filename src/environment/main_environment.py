@@ -24,6 +24,7 @@ class environment:
       dobs (str): location of the Observation file
       drout (str or dict): location of the routing file.........
       .........OR dict (key: name simulation, value:location routing file)
+
       """
       # Load observations
       self.obs = GRDC(dobs)
@@ -70,13 +71,16 @@ class environment:
       stid (int): reference of the station
       """
       Lst = [self.obs.get_stations(stid)] # Voir si mergedhydro ou hydrographs 
-      for k in tqdm.tqdm(self.Dsimu.keys()):
+      for k in self.Dsimu.keys():
          A = self.Dsimu[k].get_stations(stid)
          if A is not None:
+            print("not none")
             Lst.append(self.Dsimu[k].get_stations(stid))
          else:
+            print("else error index")
             print(k, "error for index", stid)
       if len(Lst) >1:
+         print("concat")
          df = pd.concat(Lst, axis = 1)
          df.to_csv("Output/"+namefile+"_"+str(stid)+".csv", sep = ";")
 

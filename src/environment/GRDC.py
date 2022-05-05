@@ -2,8 +2,8 @@ from netCDF4 import Dataset, num2date
 import numpy as np
 import datetime
 import pandas as pd
-import tqdm
-from src.environment.functions import get_str
+from tqdm import tqdm
+from environment import get_str
 
 class GRDC:
    """
@@ -45,7 +45,8 @@ class GRDC:
       if varn == "auto":
          varn = self.get_varname(stid) 
          if varn is None:
-            print("Error - no data observations available")
+            #print("Error - no data observations available")
+            varn = "mergedhydro"
       ind = np.where(self.number == stid)[0][0]
       hydro = self.nc.variables[varn][self.t0:self.t1:,ind]
       dtindex = pd.DatetimeIndex(self.dtime[self.t0:self.t1])
@@ -110,7 +111,7 @@ class GRDC:
             dtime = pd.DatetimeIndex(self.dtime)
 
             values = []
-            for i in range(len(index_stations)):
+            for i, ind in tqdm(enumerate(index_stations),total=len(index_stations), disable=False):
                 ind = index_stations[i]
                 d = self.nc.variables["mergedhydro"][:,ind]
                 

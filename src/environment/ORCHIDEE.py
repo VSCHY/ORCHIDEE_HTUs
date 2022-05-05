@@ -2,11 +2,13 @@ from netCDF4 import Dataset, num2date
 import numpy as np
 import datetime
 import pandas as pd
+import xarray as xr
 import tqdm
                             
 class ORCHIDEE:
    def __init__(self, dsimu, rout, sname):
       self.sname = sname
+      self.dsimu = dsimu
       self.nc = Dataset(dsimu, "r")
       self.get_time()
       self.rout = rout
@@ -38,13 +40,16 @@ class ORCHIDEE:
       Get the monthly discharge from the station stid.
       stid (int): reference of the station
       """
+      print("entering function")
       try:
          nbasmon,jj,ii = self.rout.get_stations(stid)
-
+         print(nbasmon,jj,ii)
          dtindex = pd.DatetimeIndex(self.dtime)
-         df = pd.DataFrame(self.Dis[self.t0:self.t1,nbasmon-1, jj-1, ii-1],index = dtindex[self.t0:self.t1], columns = [self.sname])
+         dis = self.Dis[self.t0:self.t1,nbasmon-1, jj-1, ii-1]
+         df = pd.DataFrame(dis, index = dtindex[self.t0:self.t1], columns = [self.sname])
          monthly=df.resample('M').mean()
          monthly.index = monthly.index.map(lambda dt: dt.replace(day=15)) 
          return monthly
       except:
+         print("An error occured in ORCHIDEE.get_stations")
          return None

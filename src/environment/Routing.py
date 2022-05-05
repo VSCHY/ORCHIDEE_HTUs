@@ -16,7 +16,7 @@ class routing:
       """
       try:
          ind = np.where(stid == self.stations_id)[0][0] 
-         ii,jj,kk,nbasmon = self.stations_nbasmon[1:,ind]
+         ii,jj,kk,nbasmon = self.stations_nbasmon[1:,ind].astype(np.int32)
          return nbasmon,jj,ii
       except:
          return None
