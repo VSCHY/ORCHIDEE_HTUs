@@ -147,5 +147,5 @@ rout.netcdf_output(name_output, stations = list_stations_id, reference = 'statio
 ```python
 name_output = "argentina__stations_mask.nc"
 stations_argentina = load_stations_from_csv("Information_Stations_Available_argentina.csv", output_format = "id")
-rout.netcdf_output("argentina__stations_mask.nc", stations = stations_argentina, reference = 'station_number')
+rout.netcdf_output(name_output, stations = stations_argentina, reference = 'station_number')
 ```
