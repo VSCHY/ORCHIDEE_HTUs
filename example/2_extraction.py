@@ -25,13 +25,7 @@ simus = {simulation_name:output_file}
 stations = {3679999:"Porto Murtinho", 3299998:"Porto Murtinho", 3651807:"Morpara", 3649901:"Maraba",3649900:"Itupiranga", 3620000:"Santo Antonio Do Ica", 3666050:"Caceres", 3659994:"Corrientes", 3264500:"Posadas", 3265601:"Timbues"}
 
 # Read it from a csv file:
-import numpy as np
-import pandas as pd
-
-df_argentina = pd.read_csv("Information_Stations_Available_argentina.csv", sep=";")
-number = df_argentina["number"].astype(np.int32).tolist()
-name = df_argentina["name"].tolist()
-stations = {num:n for num, n in zip(number, name)}
+stations = load_stations_from_csv("Information_Stations_Available_argentina.csv", output_format = "dict")
 
 ####################################################################
 ###############          DO NOT EDIT THIS PART          ############

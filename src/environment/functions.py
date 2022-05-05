@@ -77,3 +77,12 @@ def interactive_plot(namefile: str, df: pd.DataFrame, center = [-40, -70], zoom:
 
     folium.Map.save(m, namefile)
     return 
+
+def load_stations_from_csv(csv_file, output_format = "dict"):
+    df = pd.read_csv(csv_file, sep=";")
+    number = df["number"].astype(np.int32).tolist()
+    name = df["name"].tolist()
+    if output_format == "dict":
+        return {num:n for num, n in zip(number, name)}
+    if output_format == "id":
+        return number
