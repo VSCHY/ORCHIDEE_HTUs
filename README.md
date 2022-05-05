@@ -61,6 +61,28 @@ _________________
 
 # II. Setup
 
+First you have to clone the git repository
+```bash
+git clone https://github.com/VSCHY/ORCHIDEE_HTUs.git
+```
+
+Then goes in the local respository 
+```bash
+cd ORCHIDEE_HTUs
+```
+
+create a separate environment if you prefer
+```bash
+conda create --name ORCHrouting --file requirements.txt
+```
+
+When you want to use the scripts just activate the environment:
+```bash
+conda activate ORCHrouting
+```
+
+To use the different scripts, refer to the following section.
+
 _________________
 
 # III. Extraction of the discharge
@@ -104,14 +126,37 @@ It also shows you how to plot the information from your different DataFrame in a
 
 ### III.c. 2_extraction.py
 
-If the user want to compare different simulations **over the same periods**, the **2_extraction.py** can be modified manually through:
-- `simus`: the dictionary of simulations, the key is the name of the simulation and the value the directory of the output file.
-   - if these simulations use different routing file, the user can define the variable routing_file as a dictionary which keys are the name of the simulation and with the direction of the routing files as values.
-- `stations`: The stations from which we want to extract the discharge must be indicated in the dictionary (key:id_station, value:name_station) in the 2_extraction.py file. 
+This script is used to extract the simulation and observation discharge.
 
 The data will be extracted in `Output/{name_output}_{idstation}.csv` folder, one csv file per station with the name of the simulation as head of the columns.
 
+**You have to make change in the section of the script to EDIT.**
+
+You have to define the following variable in the TO EDIT section: 
+- `stations`: The stations from which we want to extract the discharge must be indicated in the dictionary (key:`id_station`, value:`name_station`). 
+
+**ADVANCED** 
+If you are analyzing more simulations you can change the `simus` variable. It is a dictionary of simulations, the key is the name of the simulation and the value the directory of the output file.
+
+*If these simulations use different routing file, the user can define the variable routing_file as a dictionary which keys are the name of the simulation and with the direction of the routing files as values.*
+
+
 ### III.d. 3_stations_upstream_area.py
-This file shows how to:
-- extract the mask array of the upstream area of a station
-- extract the upstream area of a selection of stations and save it into a NetCDF file
+
+This script is used to obtain the mask of the upstream area of the stations.
+
+**You have to make change in the section of the script to EDIT.**
+You can extract the masks for different stations by:
+
+1) giving a custom list of stations 
+```python
+name_output = "test.nc"
+list_stations_id = [3679999,3265601,3265300,3264500]
+rout.netcdf_output(name_output, stations = list_stations_id, reference = 'station_number')
+```
+2) using a dataframe saved in a csv file (cf. script 1_exploration_stations.py)
+```python
+name_output = "argentina__stations_mask.nc"
+stations_argentina = load_stations_from_csv("Information_Stations_Available_argentina.csv", output_format = "id")
+rout.netcdf_output(name_output, stations = stations_argentina, reference = 'station_number')
+```
