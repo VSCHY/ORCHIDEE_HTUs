@@ -126,15 +126,26 @@ It also shows you how to plot the information from your different DataFrame in a
 
 ### III.c. 2_extraction.py
 
-If the user want to compare different simulations **over the same periods**, the **2_extraction.py** can be modified manually through:
-- `simus`: the dictionary of simulations, the key is the name of the simulation and the value the directory of the output file.
-   - if these simulations use different routing file, the user can define the variable routing_file as a dictionary which keys are the name of the simulation and with the direction of the routing files as values.
-- `stations`: The stations from which we want to extract the discharge must be indicated in the dictionary (key:id_station, value:name_station) in the 2_extraction.py file. 
+This script is used to extract the simulation and observation discharge.
 
 The data will be extracted in `Output/{name_output}_{idstation}.csv` folder, one csv file per station with the name of the simulation as head of the columns.
 
+**You have to make change in the section of the script to EDIT.**
+
+You have to define the following variable in the TO EDIT section: 
+- `stations`: The stations from which we want to extract the discharge must be indicated in the dictionary (key:`id_station`, value:`name_station`). 
+
+**ADVANCED** 
+If you are analyzing more simulations you can change the `simus` variable. It is a dictionary of simulations, the key is the name of the simulation and the value the directory of the output file.
+
+*If these simulations use different routing file, the user can define the variable routing_file as a dictionary which keys are the name of the simulation and with the direction of the routing files as values.*
+
+
 ### III.d. 3_stations_upstream_area.py
-You have to make change in the section of the script to EDIT. 
+
+This script is used to obtain the mask of the upstream area of the stations.
+
+**You have to make change in the section of the script to EDIT.**
 You can extract the masks for different stations by:
 
 1) giving a custom list of stations 
