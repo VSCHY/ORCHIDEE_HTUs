@@ -193,7 +193,10 @@ def diag_upstmask(routetogrid,routetobasin,routenbintobas,basin_area,area,g0,b0)
              jg = jt
    return mask
        
-if __name__ == "__main__":       
+if __name__ == "__main__":
+    
+    #THIS IS A TEST
+    """       
     import cartopy
     import cartopy.crs as ccrs
     import matplotlib.pyplot as plt       
@@ -222,5 +225,6 @@ if __name__ == "__main__":
     # Test netcdf creation
     rout.netcdf_output("test1.nc", stations = [3667060,3299998,3265601], reference = 'station_number')
     rout.netcdf_output("test2.nc", stations = [144,627,74], reference = 'file_index')
+    """
     #
 
