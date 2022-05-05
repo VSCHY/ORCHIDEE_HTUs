@@ -1,6 +1,6 @@
 import sys
 sys.path.append("../src")
-from environment import get_params, environment
+from environment import get_params, environment, load_stations_from_csv
 import time
 
 ####################################################################

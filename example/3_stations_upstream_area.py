@@ -17,14 +17,24 @@ rout = routing_upstream(routing_file)
 ####################################################################
 ####################################################################
 
-# SAVE the masks in a netCDF file
+# SAVE THE MASKS IN A NETCDF FILE
+# You can give a (1) custom list of stations or (2) use a dataframe saved in a csv file (cf. script 1_exploration_stations.py) : 
 
-#To create the mask of a list of stations id
-#> rout.netcdf_output("test1.nc", stations = [3679999,3265601,3265300,3264500], reference = 'station_number')
+##############
+### LIST of STATIONS ID
 
-# You can give a custom list in stations or use a dataframe saved in a csv file (cf. script 1_exploration_stations.py) : 
+"""
+name_output = "test.nc"
+list_stations_id = [3679999,3265601,3265300,3264500]
+rout.netcdf_output(name_output, stations = list_stations_id, reference = 'station_number')
+"""
 
+##############
+### CSV FILE 
 # Load the csv
+
+"""
+name_output = "argentina__stations_mask.nc"
 stations_argentina = load_stations_from_csv("Information_Stations_Available_argentina.csv", output_format = "id")
-# Construct the mask file
-rout.netcdf_output("argentina__stations_mask.nc", stations = stations_argentina, reference = 'station_number')
+rout.netcdf_output(name_output, stations = stations_argentina, reference = 'station_number')
+"""

@@ -78,7 +78,22 @@ def interactive_plot(namefile: str, df: pd.DataFrame, center = [-40, -70], zoom:
     folium.Map.save(m, namefile)
     return 
 
-def load_stations_from_csv(csv_file, output_format = "dict"):
+def load_stations_from_csv(csv_file: str, output_format: str = "dict"):
+    """
+    Load the stations and their metadata from a csv file.
+    
+    Parameters:
+    -----------
+    csv_file (str): name of the csv file.
+    output_format (str): values that can be used are:
+                "dict" if we want a dictionnary with (key:id, value:name)
+                "id" if we want a list with the id
+    
+    Returns:
+    --------
+    stations (dict or list): dictionary or list of stations
+    ----------------------------------------------------
+    """
     df = pd.read_csv(csv_file, sep=";")
     number = df["number"].astype(np.int32).tolist()
     name = df["name"].tolist()
