@@ -77,7 +77,7 @@ You may make some changes on the `1_exploration_stations.py` to customize your s
 4) Extract the observed and simulated discharge for the stations selected(`2_extraction.py`).
 5) Construct the mask of the upstream area for each stations selected (`3_stations_upstream_area.py`).
 
-### III.1. run.def
+### III.a. run.def
 
 - `grdc_file` : Location of the Observations file used to construct the routing_file. 
 - `routing_file`: Location of the River Routing file used in the simulation. 
@@ -87,7 +87,7 @@ You may make some changes on the `1_exploration_stations.py` to customize your s
 - `y0`: first year of the simulation. 
 - `y1`: last year of the simulation. 
 
-### III.2. 1_exploration_stations.py
+### III.b. 1_exploration_stations.py
 The stations available and their metadata will be saved in a csv file as well as the percentage of data available if y0 and y1 are indicated.
 
 All the stations available and their metadata are saved in a csv file (`Information_ALL_Stations_Available.csv`).
@@ -97,7 +97,7 @@ It also shows you how to plot the information from your different DataFrame in a
 
 /!\ Some stations are represented by multiple element in the database. This due to the different origins of these data and the large discrepancies in terms of longitude / latitude / upstream area between these different source of data.
 
-### III.3. 2_extraction.py
+### III.c. 2_extraction.py
 
 If the user want to compare different simulations **over the same periods**, the **2_extraction.py** can be modified manually through:
 - `simus`: the dictionary of simulations, the key is the name of the simulation and the value the directory of the output file.
@@ -106,7 +106,7 @@ If the user want to compare different simulations **over the same periods**, the
 
 The data will be extracted in `Output/{name_output}_{idstation}.csv` folder, one csv file per station with the name of the simulation as head of the columns.
 
-### III.4. 3_stations_upstream_area.py
+### III.d. 3_stations_upstream_area.py
 This file shows how to:
 - extract the mask array of the upstream area of a station
 - extract the upstream area of a selection of stations and save it into a NetCDF file
