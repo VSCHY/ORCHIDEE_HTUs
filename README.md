@@ -57,7 +57,11 @@ In the output file, the discharge simulated are located in the variable "HTUDis"
 
 If the atmospheric grid has a dimension (nj,ni), this variable will have for dimension: (**nbasmon**, nj, ni) with **nbasmon** the maximum number of station per grid point
 
+_________________
+
 # II. Setup
+
+_________________
 
 # III. Extraction of the discharge
 
@@ -75,14 +79,13 @@ You may make some changes on the `1_exploration_stations.py` to customize your s
 
 ### III.1. run.def
 
-`grdc_file` : Location of the Observations file used to construct the routing_file.
-`routing_file`: Location of the River Routing file used in the simulation.
-`output_file`: Location of the ORCHIDEE Output file with the HTUDis variable.
-`simulation_name`: Name of your simulation.
-`name_output`: Prefix for the output csv with discharge (observed + simulated) that will be generated.
-`name_output`
-`y0`: first year of the simulation.
-`y1`: last year of the simulation.
+`grdc_file` : Location of the Observations file used to construct the routing_file. 
+`routing_file`: Location of the River Routing file used in the simulation. 
+`output_file`: Location of the ORCHIDEE Output file with the HTUDis variable. 
+`simulation_name`: Name of your simulation. 
+`name_output`: Prefix for the output csv with discharge (observed + simulated) that will be generated. 
+`y0`: first year of the simulation. 
+`y1`: last year of the simulation. 
 
 ### III.2. 1_exploration_stations.py
 The stations available and their metadata will be saved in a csv file as well as the percentage of data available if y0 and y1 are indicated.
