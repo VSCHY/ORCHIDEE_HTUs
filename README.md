@@ -73,7 +73,7 @@ cd ORCHIDEE_HTUs
 
 create a separate environment if you prefer
 ```bash
-conda create --name ORCHrouting --file requirements.txt
+conda create --name ORCHrouting folium netCDF4 numba numpy pandas tqdm -c conda-forge
 ```
 
 When you want to use the scripts just activate the environment:
