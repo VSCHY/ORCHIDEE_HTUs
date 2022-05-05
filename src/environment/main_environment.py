@@ -1,7 +1,5 @@
-from library import routing, ORCHIDEE, GRDC
-import matplotlib.pyplot as plt
+from environment import routing, ORCHIDEE, GRDC
 import pandas as pd
-import json
 import tqdm
 import numpy as np
 
@@ -19,7 +17,7 @@ class environment:
    """
    Main environment.
    """
-   def __init__(self, stations, simus, dobs, drout):
+   def __init__(self, stations: dict, simus: dict, dobs: str, drout):
       """
       stations (dict): key is the station reference, value is the station name.
       simus (dict): key is name of simulation, value is the location of the HTUDis file 

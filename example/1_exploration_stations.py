@@ -1,22 +1,13 @@
 import sys
-sys.path.append("../lib")
-from library import GRDC
+sys.path.append("../src")
+from environment import GRDC, get_params
 from netCDF4 import Dataset
 import numpy as np
 import pandas as pd
 
-import configparser
-import argparse
-ConfigFile="run.def"
-config = configparser.ConfigParser()
-config.read(ConfigFile)
+##################################
 
-#
-
-routing_file = config.get("OverAll","routing_file",fallback=None)
-grdc_file    = config.get("OverAll","grdc_file",fallback=None)
-y0           = config.getint("OverAll","y0",fallback=None)
-y1           = config.getint("OverAll","y1",fallback=None)
+routing_file, grdc_file, y0, y1,_,_,_ = get_params()
 
 ##################################
 

@@ -1,19 +1,11 @@
 import sys
-sys.path.append("../lib")
-from env import environment
+sys.path.append("../src")
+from environment import get_params, environment
 import time
 
-import configparser
-import argparse
-ConfigFile="run.def"
-config = configparser.ConfigParser()
-config.read(ConfigFile)
 
-routing_file    = config.get("OverAll","routing_file",fallback=None)
-grdc_file       = config.get("OverAll","grdc_file",fallback=None)
-simulation_name = config.get("OverAll","simulation_name",fallback=None)
-output_file     = config.get("OverAll","output_file",fallback=None)
-name_output     = config.get("OverAll","name_output",fallback="OUTPUT")
+routing_file, grdc_file, y0, y1,\
+        simulation_name, output_file, name_output = get_params()
 
 ######################################################
 
