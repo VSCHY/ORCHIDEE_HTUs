@@ -73,7 +73,12 @@ cp example my_project
 ```
 2) Fill the run.def file in your project folder (cf. below).
 3) Explore the stations available to filter the stations you are interested in (`1_exploration_stations.py`).
-You may make some changes on the `1_exploration_stations.py` to customize your station selection. The list of stations is in a Pandas DataFrame format (there are some example of basic expression to filter a DataFrame in the script).
+You may make some changes on the `1_exploration_stations.py` to customize your station selection. The list of the stations is in a Pandas DataFrame format (there are some example of basic expression to filter a DataFrame in the script). 
+You can obtain the list of the `stations id` in a certain pandas datafram `df` with:
+```python
+stations_id_list = df_argentina["number"].astype(np.int32).tolist()
+print(stations_id_list)
+```
 4) Extract the observed and simulated discharge for the stations selected(`2_extraction.py`).
 5) Construct the mask of the upstream area for each stations selected (`3_stations_upstream_area.py`).
 
