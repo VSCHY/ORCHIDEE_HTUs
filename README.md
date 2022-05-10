@@ -140,6 +140,11 @@ If you are analyzing more simulations you can change the `simus` variable. It is
 
 *If these simulations use different routing file, the user can define the variable routing_file as a dictionary which keys are the name of the simulation and with the direction of the routing files as values.*
 
+You can also use the `launch_extraction.pbs` file to launch this process if your environment support PBS jobs:
+```bash
+qsub launch_extraction.pbs
+```
+
 
 ### III.d. 3_stations_upstream_area.py
 
@@ -159,4 +164,9 @@ rout.netcdf_output(name_output, stations = list_stations_id, reference = 'statio
 name_output = "argentina__stations_mask.nc"
 stations_argentina = load_stations_from_csv("Information_Stations_Available_argentina.csv", output_format = "id")
 rout.netcdf_output(name_output, stations = stations_argentina, reference = 'station_number')
+```
+
+You can also use the `launch_upstream_mask.pbs` file to launch this process if your environment support PBS jobs:
+```bash
+qsub launch_upstream_mask.pbs
 ```
