@@ -2,7 +2,7 @@ from netCDF4 import Dataset
 import numpy as np
 import numpy.ma as ma
 from numba import jit
-
+import tqdm
 
 ###############################
 
@@ -119,7 +119,7 @@ class routing_upstream:
             L = []
             ids = np.array(self.ids)
         
-        for stid in stations:
+        for stid in tqdm.tqdm(stations):
             if reference == 'file_index':
                 if stid >= len(self.ids):
                     print("Error: 'file_index' mode")
@@ -131,7 +131,7 @@ class routing_upstream:
                 except:
                     print("Error: 'station_number' mode")
                     print("", "station id not an the available stations")
-                    print(f"{stid=}")
+                    print(f"stid = {stid}")
                     return
                 L.append(j)
         

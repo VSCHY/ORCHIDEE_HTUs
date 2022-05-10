@@ -22,7 +22,7 @@ simus = {simulation_name:output_file}
 # List of stations with their name
 
 # Manual list: 
-stations = {3679999:"Porto Murtinho", 3299998:"Porto Murtinho", 3651807:"Morpara", 3649901:"Maraba",3649900:"Itupiranga", 3620000:"Santo Antonio Do Ica", 3666050:"Caceres", 3659994:"Corrientes", 3264500:"Posadas", 3265601:"Timbues"}
+#stations = {3679999:"Porto Murtinho", 3299998:"Porto Murtinho", 3651807:"Morpara", 3649901:"Maraba",3649900:"Itupiranga", 3620000:"Santo Antonio Do Ica", 3666050:"Caceres", 3659994:"Corrientes", 3264500:"Posadas", 3265601:"Timbues"}
 
 # Read it from a csv file:
 stations = load_stations_from_csv("Information_Stations_Available_argentina.csv", output_format = "dict")

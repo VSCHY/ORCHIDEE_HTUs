@@ -2,6 +2,7 @@ from environment import routing, ORCHIDEE, GRDC
 import pandas as pd
 import tqdm
 import numpy as np
+import time
 
 ################################################################
 #                  _                                      _    #
@@ -45,6 +46,7 @@ class environment:
       simu0 = simus[list(simus.keys())[0]]
       s = ORCHIDEE(simu0, self.rout,"setup")
       self.d0 = s.dt0; self.d1 = s.dt1
+      s.nc.close()
       #
       # tlimits for obs
       self.obs.get_tlimits(self.d0,self.d1)
@@ -74,13 +76,11 @@ class environment:
       for k in self.Dsimu.keys():
          A = self.Dsimu[k].get_stations(stid)
          if A is not None:
-            print("not none")
             Lst.append(self.Dsimu[k].get_stations(stid))
          else:
             print("else error index")
             print(k, "error for index", stid)
       if len(Lst) >1:
-         print("concat")
          df = pd.concat(Lst, axis = 1)
          df.to_csv("Output/"+namefile+"_"+str(stid)+".csv", sep = ";")
 
@@ -92,7 +92,10 @@ class environment:
       print("Export to csv:")
       for station_id in self.stations.keys():
          print(self.stations[station_id])
+         t0 = time.time()
          self.get_df_station(namefile, station_id)
+         t1 = time.time()
+         print(f"{t1-t0:0.01f} s.")
 
    def get_diag_station(self, simu_name): 
       """

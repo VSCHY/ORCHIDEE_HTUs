@@ -23,18 +23,18 @@ rout = routing_upstream(routing_file)
 ##############
 ### LIST of STATIONS ID
 
-"""
+print("List method")
 name_output = "test.nc"
 list_stations_id = [3679999,3265601,3265300,3264500]
 rout.netcdf_output(name_output, stations = list_stations_id, reference = 'station_number')
-"""
+
 
 ##############
 ### CSV FILE 
 # Load the csv
 
-"""
-name_output = "argentina__stations_mask.nc"
+print("csv")
+name_output = "argentina_stations_mask.nc"
 stations_argentina = load_stations_from_csv("Information_Stations_Available_argentina.csv", output_format = "id")
 rout.netcdf_output(name_output, stations = stations_argentina, reference = 'station_number')
-"""
+

@@ -1,0 +1,17 @@
+[OverAll]
+#
+#
+routing_file = /media/anthony/Seagate/DISCHARGE/reduced_AmSud_A_graph_newdivbas_nbasmax55.nc
+#
+grdc_file = /media/anthony/Seagate/DISCHARGE/GRDC_Monthly_Feb21_v1.nc
+#
+output_file = /media/anthony/Seagate/DISCHARGE/AmSudf-bis_19980101_20191231_1D_HTUDis.nc
+#
+#
+y0 = 1998
+y1 = 2019
+#
+
+#
+simulation_name = AmSudf-bis
+name_output = AmSudf-bis
