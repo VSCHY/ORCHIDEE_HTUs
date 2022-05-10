@@ -73,7 +73,7 @@ cd ORCHIDEE_HTUs
 
 create a separate environment if you prefer
 ```bash
-conda create --name ORCHrouting --file requirements.txt
+conda create --name ORCHrouting folium netCDF4 numba numpy pandas tqdm -c conda-forge
 ```
 
 When you want to use the scripts just activate the environment:
@@ -91,7 +91,7 @@ The process of extraction of the discharge is illustrated in the subfolder `exam
 
 1) Copy the example file for your own project in the main ORCHIDEE_HTUs folder.
 ```bash
-cp example my_project
+cp -r example my_project
 ```
 2) Fill the run.def file in your project folder (cf. below).
 3) Explore the stations available to filter the stations you are interested in (`1_exploration_stations.py`).
